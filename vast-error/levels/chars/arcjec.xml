@@ -1,0 +1,41 @@
+
+<sburb description='arcjec'>
+
+<classes>
+	<animation class='arcjec-dialog' frameInterval='6' x='-250' y='-500'/>
+	<character class='arcjec' name='arcjec' sx='-50' sy='-115' sWidth='100' sHeight='130' width='35' height='25' sheet='arcjecSheet' state='walkFront' facing='Front'>
+		
+	</character>
+	
+	<!-- common command to "be" the character. -->
+	<action class='beArcjec' name='Be Arcjec.' command='macro'>
+		<args>
+			<action command='changeChar' noDelay='true'>
+				<args>meenah</args>
+				<action command='playSong' noDelay='true'>
+					<args>arcjecZong,0</args>
+				</action>
+			</action>
+		</args>
+	</action>
+</classes>
+
+<assets>
+	<asset name='arcjecSheet' type='graphic'>chars/arcjec/arcjec.png</asset>
+
+	<!-- her background music -->
+	<asset name='arcjecSong' type='audio'>audio/music/Zehanpuryu.ogg;audio/music/Zehanpuryu.mp3</asset> <!-- loops to 0 -->
+	
+	<!-- her dialog sprites -->
+	<asset name='arcjec_talk' type='graphic'>dialogs/arcjec/arcjec_talk.png</asset>
+    <asset name='arcjec_laugh' type='graphic'>dialogs/arcjec/arcjec_laugh.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+  		<animation name='arcjec_talk' class='arcjec-dialog' sheet='arcjec_talk' length='2'/>
+        <animation name='arcjec_laugh' class='arcjec-dialog' sheet='arcjec_laugh' length='2' frameInterval='1'/>
+  </dialogsprites>
+</hud>
+</sburb>
