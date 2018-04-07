@@ -1,0 +1,80 @@
+<!-- This file describes the first room. Normally I break each room into its
+own self-contained file. This isn't fundamentally necessary, but it's very
+natural. It also allows you to very easily load content only once a room
+is entered for the first time. -->
+<sburb description="first room">
+
+<dependencies>
+    <dependency>chars/arcjec.xml</dependency>
+    <dependency>chars/zehan.xml</dependency>
+    <dependency>dialogs/zehanDialog.xml</dependency>
+</dependencies>
+
+<assets>
+  <asset name='firstRoomMap' type='graphic'>backgrounds/zehanPlatformMap.png</asset>
+  <asset name='zehanPlatform' type='graphic'>backgrounds/zehanPlatformBG.png</asset>
+  <asset name='zehanhit' type='graphic'>objects/items/zehan.png</asset>
+</assets>
+
+<sprite name='zehanPlatform'>
+  <animation frameInterval='2' sheet='zehanPlatform'  colSize='850' rowSize='850' length='75' x='0' y='0'/>
+</sprite>
+
+<!-- We create the sprite for this item outside of everything else
+because by default it isn't anywhere at all. We just want to be able to
+access it at some point in the future. This is a very common pattern. We
+do this for anything that will "eventually" be added to a room.
+
+Note: depthing='2' puts this in front of everything, including foreground elements! -->
+
+<!-- We wrap all room tags in the rooms tag. This is mostly useless since it's
+not good practice to keep multiple rooms in one file, but hey, better
+safe than sorry.-->
+<rooms>
+	<!-- Here we describe our room, note that here we are using the "map" we
+	loaded in earlier. Also note the scale variable specifying how much this map
+	should be scaled up for it to reflect the actual room size. We also derive
+	the dimensions of the room from this, which is used to specify the area the
+	camera can see. However width and height can be explicitly
+	specified here if need be. The walkableMap is theoretically optional, but
+	it's incredibly useful and easy to use. -->
+  <room name='firstRoomBG' walkableMap='firstRoomMap' scale='4'>
+
+  	<!-- here we drop in our character. Since we specified everything in
+  	chars/meenah.xml, we don't have to do much here. We just need to specify
+  	her location. Note that class='meenah' will fill in all the values we
+  	didn't specify using the class in chars/meenah.xml, including any
+  	internal tags that may have been part of the class. Template classes
+  	are a great way to seperate logic and content, as well as recycle common
+  	patterns. -->
+  	<character class='arcjec' x='425' y='425'>
+  		<action class='beArcjec'/>
+  	</character>
+
+
+
+
+  	<!-- here we're adding a standard chest based on a template class found in
+  	etc/standardTemplates.xml -->
+
+
+   <!-- here we're adding in our BG and FG. This is the second half of our
+   optimization. To avoid creating a dozen sprites for every single tile, we
+   specify that this image has been sliced up into tiles. Then we just specify
+   how many there are and how big they are, and the system will find all of them
+   and tile them correctly based on their names. This also makes it very easy
+   to transition from using one big image to a sliced up one. -->
+
+   <!-- Note no depthing specification puts a sprite in the background. Not
+   specifying coordinates also puts them at (0,0) by default (top-left corner). -->
+    <sprite name='zehanPlatform'>
+      <animation frameInterval='2' sheet='zehanPlatform'  colSize='850' rowSize='850' length='75' x='0' y='0'/>
+    </sprite>
+
+    <sprite name='zehanhit' x='372' y='301' width='100' height='100' collidable='true'>
+      <animation sheet='zehanhit' x='0' y='-50'/>
+        <action class='zehanTalk'></action>
+    </sprite>
+  </room>
+</rooms>
+</sburb>

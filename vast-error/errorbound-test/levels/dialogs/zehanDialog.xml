@@ -1,0 +1,21 @@
+<sburb>
+    <classes>
+        <action class='zehanTalk' sprite='arcjec' command='talk' name='Talk to ???.'>
+            <args>
+            @arcjec_talk ARCJEC: XDXD ... XDXD
+            @zehan_talk ???: greetings.
+            @zehan_talk ???: you must be arcjec.
+            @arcjec_talk ARCJEC: XDXD Heh. XDXD
+            @arcjec_talk ARCJEC: XDXD Ha ha. XDXD
+            @arcjec_laugh ARCJEC: XDXD Hahahahahahaha! XDXD
+            @zehan_talk ????: heheheheh?
+            @arcjec_laugh ARCJEC: XDXD Hahahahahahahahahahaha! Hahahahahahaha! Hahaha! XDXD
+            @zehan_talk ????: heheheheheheh!
+            @arcjec_talk ARCJEC: XDXD And just what in the hell do you find so funny about this situation? XDXD
+            @zehan_talk ???: i’m really not too sure.
+            @zehan_talk ???: what do you? 
+            @zehan_talk ???: really, it is kind of freaking me out a little.
+            </args>
+        </action>
+    </classes>
+</sburb>

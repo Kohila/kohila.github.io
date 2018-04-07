@@ -1,0 +1,22 @@
+<sburb description='zehan spritestuff'>
+
+<classes>
+	<!-- default values for all this character's dailog sprites -->
+	<animation class='zehan-dialog' frameInterval='6' x='-225' y='-450'/>
+</classes>
+
+<assets>
+	<!-- the sprite sheet containing all her animations -->
+
+	
+	<!-- her dialog sprites -->
+	<asset name='zehan_talk' type='graphic'>dialogs/zehan/zehan_talk.png</asset>
+</assets>
+
+<hud>
+	<!-- this is the actual place where the dialog sprites get registered -->
+	<dialogsprites>	
+  		  		<animation name='zehan_talk' class='zehan-dialog' sheet='zehan_talk' />
+  </dialogsprites>
+</hud>
+</sburb>
